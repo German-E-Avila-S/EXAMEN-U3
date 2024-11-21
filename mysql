@@ -1,2 +1,38 @@
---CREAR BASE DE DATOS
-CREATE DATABASE equipos_imagen;
+mysql> CREATE DATABASE equipos_imagen;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> USE equipos_imagen;
+Database changed
+mysql> CREATE TABLE usuarios (
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre VARCHAR (50),
+    -> correo VARCHAR(50),
+    -> contraseña_hash VARCHAR(200),
+    -> tipo_usuario VARCHAR(50)
+    -> );
+Query OK, 0 rows affected (0.29 sec)
+
+mysql> CREATE TABLE equipos (
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nombre_equipo VARCHAR(50),
+    -> tipo_equipo VARCHAR(50),
+    -> descripcion VARCHAR(200),
+    -> estado VARCHAR(50),
+    -> usuario_id INT
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> CREATE TABLE codigos_acceso (
+    -> codigo VARCHAR(20) PRIMARY KEY,
+    -> tipo_usuario VARCHAR(50) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> INSERT INTO codigos_acceso (codigo, tipo_usuario) VALUES ('1', 'admin');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO codigos_acceso (codigo, tipo_usuario) VALUES ('2', 'tecnico');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO codigos_acceso (codigo, tipo_usuario) VALUES ('3', 'auditor');
+Query OK, 1 row affected (0.01 sec)
