@@ -1,1 +1,126 @@
+body {
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    background-color: #ddd;
+  }
+  
+  h1 {
+    color: #000000;
+    text-align: center;
+  }
 
+  form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fe0202;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #000000;
+  }
+  
+  label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bolder;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #0331fb;
+    border-radius: 4px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #fe0202;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #04fc39;
+  }
+
+  table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #fe0202;
+    color: white;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+/* Estilo para el contenedor de la barra de navegación */
+nav {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
+/* Estilo para los enlaces del menú */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+  border-radius: 4px;
+}
