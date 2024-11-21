@@ -1,1 +1,2 @@
-
+--CREAR BASE DE DATOS
+CREATE DATABASE equipos_imagen;
