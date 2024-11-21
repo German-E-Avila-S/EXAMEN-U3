@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 
+  <title>Mini Hackaton</title>
+</head>
+<body>
+  <h1>Bienvenido a la Gestión de Equipos</h1>
+  <p>Esta es una página básica para administrar equipos médicos.</p>
+
+    <!-- Incluir barra de navegación desde navbar.html -->
+    <div id="navbar"></div>
+
+  <script>
+  // Insertar el contenido de navbar.html en el elemento con id "navbar"
+  fetch('/navbar.html')
+              .then(response => response.text())
+              .then(data => {
+                  document.getElementById('navbar').innerHTML = data;
+              })
+              .catch(error => console.error('Error cargando el navbar:', error));
+
+    // Solicitar el tipo de usuario y ajustar el menú en función de este
+  fetch('/tipo-usuario')
+        .then(response => response.json())
+        .then(data => {
+            const menu = document.getElementById('menu');
+            const tipoUsuario = data.tipo_usuario;
+            // Agregar opciones de menú según el tipo de usuario
+            if (tipoUsuario === 'admin') {
+                menu.innerHTML += '<li><a href="/insertar-equipo">Insertar Equipo</a></li>';
+                menu.innerHTML += '<li><a href="/editar-equipo">Editar Equipo</a></li>';
+                menu.innerHTML += '<li><a href="/eliminar-equipo">Eliminar Equipo</a></li>';
+                menu.innerHTML += '<li><a href="/ver-usuarios">Ver Usuarios</a></li>';
+                menu.innerHTML += '<li><a href="/ver-equipos">Ver Equipos</a></li>';
+            } else if (tipoUsuario === 'tecnico') {
+                menu.innerHTML += '<li><a href="/ver-mis-equipos">Ver Equipos</a></li>';
+                menu.innerHTML += '<li><a href="/editar-mi-equipo">Editar Equipos</a></li>';
+            } else if (tipoUsuario === 'auditor') {
+                menu.innerHTML += '<li><a href="/ver-equipos">Ver Equipos</a></li>';
+            }
+
+            // Opción de cerrar sesión para todos los tipos de usuario
+            menu.innerHTML += '<li><a href="/logout">Cerrar Sesión</a></li>';
+        })
+        .catch(error => console.error('Error obteniendo el tipo de usuario:', error));
+</script>
+  <br> 
+  <h2>Registrar Equipos</h2>
+  <form action="/insertar-equipo" method="POST">
+
+    <label for="nombre">Nombre del Equipo:</label>
+    <input type="text" id="nombre" name="nombre">
+    
+    <label for="tipo">Tipo de Equipo:</label>
+    <input type="text" id="tipo" name="tipo">
+  
+    <label for="descripcion">Descripción:</label>
+    <input type="text" id="descripcion" name="descripcion">
+
+    <label for="estado">Estado del Equipo:</label>
+    <input type="text" id="estado" name="estado">
+
+    <label for="usuario_id">ID del Usuario:</label>
+    <input type="number" id="usuario_id" name="usuario_id">
+
+    <button type="submit">Guardar</button>
+  </form>
+  <br>
+  <h2>Editar Equipos</h2>
+  <form action="/editar-equipo" method="POST">
+
+    <label for="nombre">ID del Equipo:</label>
+    <input type="number" id="id" name="id">
+
+    <label for="nombre">Nombre del Equipo:</label>
+    <input type="text" id="nombre" name="nombre">
+    
+    <label for="tipo">Tipo de Equipo:</label>
+    <input type="text" id="tipo" name="tipo">
+  
+    <label for="descripcion">Descripción:</label>
+    <input type="text" id="descripcion" name="descripcion">
+
+    <label for="estado">Estado del Equipo:</label>
+    <input type="text" id="estado" name="estado">
+
+    <label for="usuario_id">ID del Usuario:</label>
+    <input type="number" id="usuario_id" name="usuario_id">
+
+    <button type="submit">Guardar</button>
+  </form>
+  <br>
+  <h2>Eliminar Equipos</h2>
+  <form action="/eliminar-equipo" method="POST">
+
+    <label for="nombre">ID del Equipo:</label>
+    <input type="number" id="id" name="id">
+
+    <button type="submit">Guardar</button>
+  </form>
